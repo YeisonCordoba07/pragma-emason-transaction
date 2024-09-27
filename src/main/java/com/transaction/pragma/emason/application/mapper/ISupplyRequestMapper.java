@@ -13,8 +13,13 @@ import org.mapstruct.ReportingPolicy;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface ISupplyRequestMapper {
 
-
-    Supply toSupply(SupplyRequestDTO supplyRequestDTO);
+    //@Mapping(target = "id", ignore = true)
+    default Supply toSupply(SupplyRequestDTO supplyRequestDTO){
+        Supply supply = new Supply();
+        supply.setIdItem(supplyRequestDTO.getIdItem());
+        supply.setQuantity(supplyRequestDTO.getQuantity());
+        return supply;
+    }
 
 
 }

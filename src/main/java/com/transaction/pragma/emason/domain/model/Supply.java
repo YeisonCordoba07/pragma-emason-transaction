@@ -1,5 +1,8 @@
 package com.transaction.pragma.emason.domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class Supply {
 
     private Integer id;
@@ -12,6 +15,7 @@ public class Supply {
     }
 
     public Supply(){}
+
 
 
     public Integer getId() {
