@@ -1,7 +1,5 @@
 package com.transaction.pragma.emason.domain.model;
 
-import lombok.Getter;
-import lombok.Setter;
 
 public class Supply {
 
