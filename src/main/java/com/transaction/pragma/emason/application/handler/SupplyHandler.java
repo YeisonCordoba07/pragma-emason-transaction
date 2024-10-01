@@ -21,12 +21,12 @@ public class SupplyHandler implements ISupplyHandler {
 
 
     @Override
-    public void increaseSupply(SupplyRequestDTO supplyRequestDTO) {
+    public void increaseSupply(SupplyRequestDTO supplyRequestDTO, String token) {
 
         Supply supply = iSupplyRequestMapper.toSupply(supplyRequestDTO);
         iSupplyService.increaseSupply(supply);
         System.out.println("############# Suply: "+ supply.getIdItem() + supply.getQuantity());
-        iStockFeignClient.increaseItem(supply.getIdItem(), supply.getQuantity());
+        iStockFeignClient.increaseItem(supply.getIdItem(), supply.getQuantity(), token);
     }
 
 }

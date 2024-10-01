@@ -13,5 +13,8 @@ public interface IStockFeignClient {
 
     @PutMapping("/item/{idItem}/{increase}")
     //void increaseItem(@PathVariable("id") Integer id, @PathVariable("increase") Integer increase);
-    void increaseItem(@PathVariable Integer idItem, @PathVariable Integer increase);
+    void increaseItem(
+            @PathVariable Integer idItem,
+            @PathVariable Integer increase,
+            @RequestHeader("Authorization") String token);
 }

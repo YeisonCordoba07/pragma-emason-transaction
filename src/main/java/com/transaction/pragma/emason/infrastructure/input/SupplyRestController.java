@@ -23,8 +23,8 @@ public class SupplyRestController {
 
 
     @PostMapping
-    public ResponseEntity<Void> increaseSupply(@Valid @RequestBody SupplyRequestDTO supplyRequestDTO) {
-        iSupplyHandler.increaseSupply(supplyRequestDTO);
+    public ResponseEntity<Void> increaseSupply(@Valid @RequestBody SupplyRequestDTO supplyRequestDTO, @RequestHeader(value = "Authorization") String token) {
+        iSupplyHandler.increaseSupply(supplyRequestDTO, token);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
