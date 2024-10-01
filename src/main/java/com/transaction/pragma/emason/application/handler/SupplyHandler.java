@@ -16,6 +16,7 @@ public class SupplyHandler implements ISupplyHandler {
 
     private final ISupplyService iSupplyService;
     private final ISupplyRequestMapper iSupplyRequestMapper;
+    private final IStockFeignClient iStockFeignClient;
 
 
 
@@ -24,6 +25,8 @@ public class SupplyHandler implements ISupplyHandler {
 
         Supply supply = iSupplyRequestMapper.toSupply(supplyRequestDTO);
         iSupplyService.increaseSupply(supply);
+        System.out.println("############# Suply: "+ supply.getIdItem() + supply.getQuantity());
+        iStockFeignClient.increaseItem(supply.getIdItem(), supply.getQuantity());
     }
 
 }
