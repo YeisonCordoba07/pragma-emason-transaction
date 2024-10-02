@@ -8,7 +8,7 @@ public class Sale {
 
     public Sale(){}
 
-    public Sale(Integer idSupply, String email) {
+    public Sale(Integer idSupply) {
         this.idSupply = idSupply;
     }
 
