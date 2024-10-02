@@ -24,6 +24,10 @@ public class SupplyUseCase implements ISupplyService {
     @Override
     public void increaseSupply(Supply supply) {
 
+        if(supply.getQuantity() <= 0){
+            throw new IllegalArgumentException("Quantity must be greater than 0");
+        }
+
         iSupplyPersistence.increaseSupply(supply);
 
         Supply supplyDataBase = iSupplyPersistence.getLastSupply();
